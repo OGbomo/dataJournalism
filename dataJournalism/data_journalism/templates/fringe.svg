@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 705" width="800" height="720">
+    <!-- Y-axis Title -->
+    <text x="20" y="250" fill="black" transform="rotate(-90, 20, 250)">states</text>
+    <line x1="77" y1="0" x2="77" y2="595" stroke="black" />
+
+    <!-- X-axis Title -->
+    <text x="300" y="630" fill="black" text-anchor="middle">Income to farmer's market Ratio</text>
+    <line x1="80" y1="595" x2="560" y2="595" stroke="black" />
+  
+    {% for number in range(1, 11) %}
+        <text id = txt x="{{ 50 + (number * 50) }}" y="615" fill="black" text-anchor="middle" font-size="4px">$10,000 per 1/{{number}}</text>
+    {% endfor %}
+
+
+    {% for district in data.keys() %}
+        {% if district in inc.keys() %}
+            <rect x="80" y="{{ 563 - (loop.index * 40) }}" width="{{ inc[district] / (data[district]) }}" height="30" fill="blue" />
+            <text x="30" y="{{ 563 - (loop.index * 40) + 20 }}" fill="black">{{ district }}</text>
+        {% endif %}
+    {% endfor %}
+</svg>

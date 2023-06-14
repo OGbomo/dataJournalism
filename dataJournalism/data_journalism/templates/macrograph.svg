@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="1500" height="500">
+    <text x="40" y="200" fill="black" transform="rotate(-90, 20, 250)">Boroughs</text>
+<line x1="69" y1="5" x2="69" y2="350" stroke="black" />
+<line x1="69" y1="350" x2="600" y2="350" stroke="black" />
+
+{% for borough in data.keys() %}
+    
+    <rect x="70" y="{{ (loop.index0+1) * 60 }}" width="{{ mIncome[borough]/(data[borough]|length * 50) }}" height="40" fill="blue" />
+    <text x="-25" y="{{ (loop.index0+1) * 60 + 35 }}" fill="black"> {{ borough }}</text>
+
+{% endfor %}
+
+</svg>
+
+
+
+
+
+
+
